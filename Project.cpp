@@ -132,8 +132,5 @@ void CleanUp(void)
 {
     MacUILib_clearScreen();  
     
-    // delete myGM;
-    // delete player;
-    // delete pFood;
     MacUILib_uninit();
 }
