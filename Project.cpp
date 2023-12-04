@@ -68,7 +68,6 @@ void RunLogic(void)
     player->updatePlayerDir(); 
     player->movePlayer();
     myGM->clearInput();
-    int i;
 
     
 }
@@ -79,7 +78,7 @@ void DrawScreen(void)
     bool drawn; 
     objPos grid(0, 0, '#');
     objPosArrayList* playerBody = player->getPlayerPos();
-    objPos tempBody;
+    objPos temp;
     objPos playerPosition;
     objPos FoodPos;
 
@@ -88,9 +87,9 @@ void DrawScreen(void)
         for (int j = 0; j < myGM->getBoardSizeX(); j++) {
             drawn = false;
             for (int k=0; k< playerBody->getSize(); k++){
-                playerBody->getElement(tempBody, k);
-                if(tempBody.x == j && tempBody.y == i){
-                    grid.setObjPos(i, j, tempBody.symbol);
+                playerBody->getElement(temp, k);
+                if(temp.x == j && temp.y == i){
+                    grid.setObjPos(i, j, temp.symbol);
                     drawn = true;
                     break;
                 }
@@ -115,7 +114,7 @@ void DrawScreen(void)
         MacUILib_printf("\n");
     }
     for(int x =0; x < playerBody->getSize(); x++){
-        playerBody -> getElement(tempBody, x);
+        playerBody -> getElement(temp, x);
     }
     pFood->getFoodPos(FoodPos);
     MacUILib_printf("\nScore: %d", playerBody->getSize() - 1);

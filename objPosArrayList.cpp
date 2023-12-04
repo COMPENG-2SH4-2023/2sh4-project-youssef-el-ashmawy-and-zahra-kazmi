@@ -23,7 +23,6 @@ int objPosArrayList::getSize()
 void objPosArrayList::insertHead(objPos thisPos)
 {
     if(listSize == arrayCapacity){
-        //if list size == array capacity don't insert
         return;
     }
     for (int i =listSize; i>0;i--){
@@ -36,7 +35,6 @@ void objPosArrayList::insertHead(objPos thisPos)
 void objPosArrayList::insertTail(objPos thisPos)
 {
     if(listSize == arrayCapacity){
-        //if list size == array capacity don't insert
         return;
     }
     arrList[listSize].setObjPos(thisPos);
@@ -74,7 +72,9 @@ void objPosArrayList::getTailElement(objPos &returnPos)
 void objPosArrayList::getElement(objPos &returnPos, int index)
 {
 
-    if(index>=0 && index<listSize && listSize>0){
-        returnPos.setObjPos(arrList[index]);
+    if(index >= 0 && index < listSize && listSize > 0){
+        returnPos.x = arrList[index].x;
+        returnPos.y = arrList[index].y;
+        returnPos.symbol = arrList[index].symbol;
     }
 }
